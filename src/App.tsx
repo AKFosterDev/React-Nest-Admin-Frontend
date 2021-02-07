@@ -1,42 +1,30 @@
 import React from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
 import './App.css'
 import Nav from './components/Nav'
 import Menu from './components/Menu'
+import Dashboard from './pages/Dashboard'
+import Users from './pages/Users'
 
 function App() {
 	return (
 		<div className='App'>
-			<Nav />
-			<Menu />
+			<BrowserRouter>
+				<Nav />
+				<Menu />
 
-			<div className='container-fluid'>
-				<div className='row'>
-					<main role='main' className='col-md-9 ml-sm-auto col-lg-10 pt-3 px-4'>
-						<div className='table-responsive'>
-							<table className='table table-striped table-sm'>
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Header</th>
-										<th>Header</th>
-										<th>Header</th>
-										<th>Header</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>1,001</td>
-										<td>Lorem</td>
-										<td>ipsum</td>
-										<td>dolor</td>
-										<td>sit</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</main>
+				<div className='container-fluid'>
+					<div className='row'>
+						<main
+							role='main'
+							className='col-md-9 ml-sm-auto col-lg-10 pt-3 px-4'
+						>
+							<Route path={'/'} exact component={Dashboard} />
+							<Route path={'/users'} component={Users} />
+						</main>
+					</div>
 				</div>
-			</div>
+			</BrowserRouter>
 		</div>
 	)
 }
